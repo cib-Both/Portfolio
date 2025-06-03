@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
 const Contact = () => {
   // Animation variants
@@ -53,7 +53,7 @@ const Contact = () => {
             Get In Touch
           </motion.h2>
           <motion.div 
-            className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto transition-colors duration-500"
+            className="w-20 h-1 bg-gray-600 dark:bg-gray-400 mx-auto transition-colors duration-500"
             variants={itemVariants}
           ></motion.div>
         </motion.div>
@@ -81,7 +81,7 @@ const Contact = () => {
                 { icon: FaEnvelope, label: 'Email', value: 'john@example.com' }
               ].map(({ icon: Icon, label, value }, index) => (
                 <motion.div key={index} className="flex items-start" variants={itemVariants}>
-                  <div className="text-primary-600 dark:text-primary-400 mt-1 mr-4">
+                  <div className="text-gray-600 dark:text-gray-400 mt-1 mr-4">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
@@ -98,14 +98,14 @@ const Contact = () => {
                 {[
                   { icon: FaGithub, link: 'https://github.com' },
                   { icon: FaLinkedin, link: 'https://linkedin.com' },
-                  { icon: FaTwitter, link: 'https://twitter.com' }
+                  { icon: FaFacebook, link: 'https://twitter.com' }
                 ].map(({ icon: Icon, link }, index) => (
                   <motion.a 
                     key={index}
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-400 transition-colors duration-300"
                     whileHover={{ y: -3 }}
                   >
                     <Icon className="w-6 h-6" />
@@ -131,7 +131,7 @@ const Contact = () => {
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input 
                   type="text" 
-                  className="w-full p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400"
+                  className="w-full p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-400"
                   placeholder="Your Name"
                   required
                 />
@@ -141,7 +141,7 @@ const Contact = () => {
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                 <input 
                   type="email" 
-                  className="w-full p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400"
+                  className="w-full p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-400"
                   placeholder="you@example.com"
                   required
                 />
@@ -151,7 +151,7 @@ const Contact = () => {
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
                 <textarea 
                   rows="5"
-                  className="w-full p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400"
+                  className="w-full p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-400"
                   placeholder="Your message..."
                   required
                 ></textarea>
@@ -160,7 +160,7 @@ const Contact = () => {
               <motion.div variants={formItemVariants}>
                 <button 
                   type="submit"
-                  className="px-6 py-3 font-medium bg-gray-900 hover:bg-gray-600 dark:bg-white dark:hover:bg-gray-400 text-white dark:text-black rounded-lg transition duration-300"
+                  className="px-6 py-3 font-medium bg-gray-800 hover:bg-gray-950 dark:bg-gray-300 dark:hover:bg-white text-white dark:text-black rounded-lg transition duration-300"
                 >
                   Send Message
                 </button>

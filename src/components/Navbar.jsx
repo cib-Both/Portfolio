@@ -65,9 +65,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             smooth={true}
             duration={500}
             offset={-80}
-            className="text-xl font-bold text-blue-900 dark:text-blue-400 cursor-pointer hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            className="bg-blue-900 dark:bg-blue-600 py-0.5 px-4 rounded-xl text-lg font-bold text-white shadow-xl cursor-pointer hover:bg-blue-800 dark:hover:bg-blue-700 transition-colors"
           >
-            Chem IndraBoth
+            CHEM INDRABOTH .
           </Link>
 
           {/* Desktop Navigation */}
@@ -80,8 +80,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 duration={500}
                 offset={-80}
                 spy={true}
-                activeClass="text-black dark:text-white border-b-2 border-primary-600 dark:border-primary-400"
-                className={`${activeSection === item.href ? 'text-black dark:text-white border-b-2 border-primary-600 dark:border-primary-400' : 'text-gray-600 dark:text-gray-400'} font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer`}
+                activeClass="text-black dark:text-white border-b-2 border-gray-800 dark:border-gray-200"
+                className={`${activeSection === item.href ? 'text-black dark:text-white border-b-2 border-gray-800 dark:border-gray-200' : 'text-gray-600 dark:text-gray-400'} font-medium hover:text-gray-800 dark:hover:text-gray-200 transition-colors cursor-pointer`}
               >
                 {item.name}
               </Link>
@@ -124,7 +124,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div 
-              className="md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-2 overflow-hidden"
+              className="md:hidden font-semibold bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-2 overflow-hidden"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -138,8 +138,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                   duration={500}
                   offset={-80}
                   spy={true}
-                  activeClass="bg-gray-100 dark:bg-gray-700 text-primary-600 dark:text-primary-400"
-                  className={`block px-4 py-3 ${activeSection === item.href ? 'bg-gray-100 dark:bg-gray-700 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'} hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer`}
+                  activeClass="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+                  className={`block px-4 py-3 ${activeSection === item.href ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200' : 'text-gray-700 dark:text-gray-300'} hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer`}
                   onClick={toggleMenu}
                 >
                   {item.name}

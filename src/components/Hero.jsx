@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaFacebook, FaFileDownload } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { Link } from 'react-scroll'
 
@@ -53,11 +53,11 @@ const Hero = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
               variants={itemVariants}
             >
-              Hi, I'm <span className="text-primary-600 dark:text-primary-400 transition-colors duration-300">IndraBoth</span>
+              Hi, I'm <span className="text-gray-900 dark:text-white transition-colors duration-300">Indraboth</span>
             </motion.h1>
             
             <motion.h2 
-              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-gray-600 dark:text-gray-300 transition-colors duration-300"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-blue-900 dark:text-blue-400 transition-colors duration-300"
               variants={itemVariants}
             >
               Software Developer
@@ -79,21 +79,21 @@ const Hero = () => {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="bg-primary-600 hover:bg-gray-50 dark:hover:bg-gray-900 text-gray-800 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-gray-400 cursor-pointer transform hover:-translate-y-1"
+                className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-gray-400 cursor-pointer transform hover:-translate-y-1 text-center"
               >
                 Contact Me
               </Link>
               
-              <motion.a
-                href="/resume.pdf"
+              {/* <motion.a
+                href="/"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center border border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow hover:shadow-md"
+                className="flex items-center justify-center border dark:hover:bg-gray-800 font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow hover:shadow-md"
               >
                 <FaFileDownload className="mr-2" />
                 Download CV
-              </motion.a>
+              </motion.a> */}
             </motion.div>
           </div>
           
@@ -103,7 +103,7 @@ const Hero = () => {
           >
             <div className="relative">
               <motion.div 
-                className="w-64 h-64 md:w-80 md:h-80 bg-primary-100 dark:bg-primary-900 rounded-full overflow-hidden border-4 border-primary-500 dark:border-primary-400 shadow-xl transition-all duration-500"
+                className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 shadow-xl transition-all duration-500"
                 whileHover={{ scale: 1.03 }}
               >
                 <img
@@ -122,7 +122,7 @@ const Hero = () => {
                     href="https://github.com" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                    className="text-gray-700 dark:text-gray-300 transition-colors duration-300"
                     whileHover={{ y: -3 }}
                   >
                     <FaGithub className="w-6 h-6" />
@@ -132,7 +132,7 @@ const Hero = () => {
                     href="https://linkedin.com" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                    className="text-gray-700 dark:text-gray-300 transition-colors duration-300"
                     whileHover={{ y: -3 }}
                   >
                     <FaLinkedin className="w-6 h-6" />
@@ -142,10 +142,10 @@ const Hero = () => {
                     href="https://twitter.com" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                    className="text-gray-700 dark:text-gray-300 transition-colors duration-300"
                     whileHover={{ y: -3 }}
                   >
-                    <FaTwitter className="w-6 h-6" />
+                    <FaFacebook className="w-6 h-6" />
                   </motion.a>
                 </div>
               </motion.div>

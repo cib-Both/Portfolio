@@ -3,13 +3,13 @@ import { motion } from 'framer-motion'
 const skills = [
   { name: 'HTML', level: 95 },
   { name: 'CSS/Tailwind', level: 90 },
-  { name: 'JavaScript', level: 90 },
-  { name: 'React', level: 85 },
-  { name: 'Node.js', level: 80 },
-  { name: 'Express', level: 80 },
-  { name: 'MongoDB', level: 75 },
+  { name: 'JavaScript', level: 70 },
+  { name: 'React', level: 75 },
+  { name: 'Laravel', level: 80 },
+  { name: 'Filament', level: 80 },
+  { name: 'My SQL', level: 75 },
   { name: 'Git', level: 85 },
-  { name: 'Python', level: 70 },
+  { name: 'Java', level: 60 },
   { name: 'Docker', level: 65 },
 ]
 
@@ -98,7 +98,7 @@ const Skills = () => {
             My Skills
           </motion.h2>
           <motion.div 
-            className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto transition-colors duration-500"
+            className="w-20 h-1 bg-gray-600 dark:bg-gray-400 mx-auto transition-colors duration-500"
             variants={itemVariants}
           ></motion.div>
         </motion.div>
@@ -178,7 +178,7 @@ const Skills = () => {
                   variants={itemVariants}
                   whileHover={{ scale: 1.03 }}
                 >
-                  <div className="text-primary-600 dark:text-primary-400 mb-3 transition-colors duration-500">
+                  <div className="text-gray-600 dark:text-gray-400 mb-3 transition-colors duration-500">
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       {skill.icon}
                     </svg>

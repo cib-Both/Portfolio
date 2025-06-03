@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion'
+import Fotbal from '../assets/Fotbal.png'
 
 const projects = [
   {
-    title: "E-commerce Platform",
+    title: "Booking Football Match UI",
     description: "A full-featured online store with product listings, cart functionality, and secure checkout process.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
-    image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
-    link: "#",
-    github: "#"
+    technologies: ["React","Tailwind" ],
+    image: Fotbal,
+    link: "https://fotbal-booking-app.vercel.app",
+    github: "https://github.com/cib-Both/Fotbal-booking-app"
   },
   {
     title: "Task Management App",
@@ -87,7 +88,7 @@ const Projects = () => {
             My Projects
           </motion.h2>
           <motion.div 
-            className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto transition-colors duration-500"
+            className="w-20 h-1 bg-gray-600 dark:bg-gray-400 mx-auto transition-colors duration-500"
             variants={itemVariants}
           ></motion.div>
         </motion.div>
@@ -136,7 +137,7 @@ const Projects = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                     whileHover={{ x: 5 }}
-                    className="text-primary-600 dark:text-primary-400 hover:underline font-medium transition-colors duration-300"
+                    className="text-gray-600 dark:text-gray-300 hover:underline font-medium transition-colors duration-300"
                   >
                     Live Demo
                   </motion.a>
@@ -145,7 +146,7 @@ const Projects = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                     whileHover={{ x: 5 }}
-                    className="text-gray-600 dark:text-gray-300 hover:underline font-medium transition-colors duration-300"
+                    className="text-gray-500 dark:text-gray-400 hover:underline font-medium transition-colors duration-300"
                   >
                     View Code
                   </motion.a>
@@ -166,7 +167,7 @@ const Projects = () => {
             href="https://github.com/cib-Both"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-primary-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-800 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-gray-400 cursor-pointer transform hover:-translate-y-1"
+            className="inline-block bg-gray-100 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-800 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-gray-400 cursor-pointer transform hover:-translate-y-1"
           >
             View My Github
           </motion.a>

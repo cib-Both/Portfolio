@@ -55,7 +55,7 @@ const About = () => {
             About Me
           </motion.h2>
           <motion.div 
-            className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto transition-colors duration-500"
+            className="w-20 h-1 bg-gray-600 dark:bg-gray-400 mx-auto transition-colors duration-500"
             variants={itemVariants}
           ></motion.div>
         </motion.div>
@@ -71,7 +71,7 @@ const About = () => {
             className="md:w-1/3 mb-8 md:mb-0 flex justify-center"
             variants={imageVariants}
           >
-            <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary-500 dark:border-primary-400 shadow-lg transition-colors duration-500">
+            <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-gray-500 dark:border-gray-400 shadow-lg transition-colors duration-500">
               <img
                 src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
                 alt="About Me"
@@ -139,7 +139,7 @@ const About = () => {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="inline-block bg-primary-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-800 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-gray-400 cursor-pointer transform hover:-translate-y-1"
+                className="inline-block bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-gray-400 cursor-pointer transform hover:-translate-y-1"
               >
                 Contact Me
               </Link>

@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            className="hover:text-gray-500 dark:hover:text-gray-200 transition-colors"
           >
             <FaGithub className="w-5 h-5" />
           </a>
@@ -17,7 +17,7 @@ const Footer = () => {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            className="hover:text-gray-500 dark:hover:text-gray-200 transition-colors"
           >
             <FaLinkedin className="w-5 h-5" />
           </a>
@@ -25,13 +25,13 @@ const Footer = () => {
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            className="hover:text-gray-500 dark:hover:text-gray-200 transition-colors"
           >
-            <FaTwitter className="w-5 h-5" />
+            <FaFacebook className="w-5 h-5" />
           </a>
         </div>
         <p className="text-sm text-center">
-          © {new Date().getFullYear()} Your Name. All rights reserved.
+          © {new Date().getFullYear()} Chem Indraboth. All rights reserved.
         </p>
       </div>
     </footer>
