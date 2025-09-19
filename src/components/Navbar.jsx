@@ -53,7 +53,12 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
   return (
     <motion.header 
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}
+      className={`fixed top-3 left-1/2 transform -translate-x-1/2 
+                  w-[90%] max-w-6xl z-50 rounded-2xl 
+                  transition-all duration-300 
+                  ${scrolled 
+                    ? 'bg-white/30 dark:bg-gray-800/30 backdrop-blur-xl shadow-lg' 
+                    : 'bg-transparent'}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
