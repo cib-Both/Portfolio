@@ -1,3 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #1e40af;
+  --primary-light: #60a5fa;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Glassmorphism base */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Gradient text - blue only */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dark background */
+.animated-gradient {
+  background: #0a0a0f;
+}
+
+/* Grid pattern background */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Simple line decoration */
+.cyber-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--primary);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Button styles */
+.btn-cyber {
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-cyber:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}

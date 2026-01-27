@@ -10,13 +10,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setScrolled(window.scrollY > 10)
 
-      // Update active section based on scroll position
       const sections = ['home', 'about', 'skills', 'projects', 'contact']
       const scrollPosition = window.scrollY + 100
 
@@ -39,11 +34,11 @@ const Navbar = ({ darkMode, setDarkMode }) => {
   }, [])
 
   const navItems = [
-    { name: 'Home', href: 'home' },
-    { name: 'About', href: 'about' },
-    { name: 'Skills', href: 'skills' },
-    { name: 'Projects', href: 'projects' },
-    { name: 'Contact', href: 'contact' },
+    { name: 'HOME', href: 'home' },
+    { name: 'ABOUT', href: 'about' },
+    { name: 'SKILLS', href: 'skills' },
+    { name: 'PROJECTS', href: 'projects' },
+    { name: 'CONTACT', href: 'contact' },
   ]
 
   const toggleMenu = () => {
@@ -53,30 +48,35 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
   return (
     <motion.header 
-      className={`fixed top-3 left-1/2 transform -translate-x-1/2 
-                  w-[90%] max-w-6xl z-50 rounded-2xl 
+      className={`fixed top-4 left-1/2 transform -translate-x-1/2 
+                  w-[95%] max-w-5xl z-50 rounded-xl 
                   transition-all duration-300 
                   ${scrolled 
-                    ? 'bg-white/30 dark:bg-gray-800/30 backdrop-blur-xl shadow-lg' 
+                    ? darkMode 
+                      ? 'bg-black/80 backdrop-blur-md'
+                      : 'bg-white/80 backdrop-blur-md shadow-lg'
                     : 'bg-transparent'}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <nav className="px-4 sm:px-6">
+        <div className="flex justify-between items-center h-14">
+          {/* Logo */}
           <Link
             to="home"
             smooth={true}
             duration={500}
             offset={-80}
-            className="bg-blue-900 dark:bg-blue-600 py-0.5 px-4 rounded-xl text-lg font-bold text-white shadow-xl cursor-pointer hover:bg-blue-800 dark:hover:bg-blue-700 transition-colors"
+            className="cursor-pointer"
           >
-            CHEM INDRABOTH .
+            <div className="px-3 py-1 rounded-lg bg-blue-600">
+              <span className="text-base font-bold text-white">CHEM INDRABOTH.</span> 
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -85,43 +85,41 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 duration={500}
                 offset={-80}
                 spy={true}
-                activeClass="text-black dark:text-white border-b-2 border-gray-800 dark:border-gray-200"
-                className={`${activeSection === item.href ? 'text-black dark:text-white border-b-2 border-gray-800 dark:border-gray-200' : 'text-gray-600 dark:text-gray-400'} font-medium hover:text-gray-800 dark:hover:text-gray-200 transition-colors cursor-pointer`}
+                className={`px-3 py-2 text-sm font-medium cursor-pointer transition-colors duration-200
+                  ${activeSection === item.href 
+                    ? 'text-blue-500' 
+                    : darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
               >
                 {item.name}
               </Link>
             ))}
-            <motion.button
+            
+            {/* Theme Toggle */}
+            <button
               onClick={() => setDarkMode(!darkMode)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className={`ml-2 p-2 rounded-lg border transition-colors ${darkMode ? 'bg-white/5 border-white/10 text-gray-400 hover:text-white' : 'bg-gray-100 border-gray-200 text-gray-600 hover:text-gray-900'}`}
               aria-label="Toggle dark mode"
             >
-              {darkMode ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
-            </motion.button>
+              {darkMode ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
+            </button>
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="md:hidden flex items-center">
-            <motion.button
+          <div className="md:hidden flex items-center gap-2">
+            <button
               onClick={() => setDarkMode(!darkMode)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors mr-2"
+              className={`p-2 rounded-lg border ${darkMode ? 'bg-white/5 border-white/10 text-gray-400' : 'bg-gray-100 border-gray-200 text-gray-600'}`}
               aria-label="Toggle dark mode"
             >
-              {darkMode ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
-            </motion.button>
-            <motion.button
+              {darkMode ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
+            </button>
+            <button
               onClick={toggleMenu}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className={`p-2 rounded-lg border ${darkMode ? 'bg-white/5 border-white/10 text-gray-400' : 'bg-gray-100 border-gray-200 text-gray-600'}`}
               aria-label="Toggle menu"
             >
-              {isOpen ? <FaTimes className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
-            </motion.button>
+              {isOpen ? <FaTimes className="w-4 h-4" /> : <FaBars className="w-4 h-4" />}
+            </button>
           </div>
         </div>
 
@@ -129,11 +127,11 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div 
-              className="md:hidden font-semibold bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-2 overflow-hidden"
+              className={`md:hidden rounded-lg mt-2 overflow-hidden border ${darkMode ? 'bg-black/90' : 'bg-white/90'}`}
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              transition={{ duration: 0.2 }}
             >
               {navItems.map((item) => (
                 <Link
@@ -143,8 +141,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                   duration={500}
                   offset={-80}
                   spy={true}
-                  activeClass="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-                  className={`block px-4 py-3 ${activeSection === item.href ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200' : 'text-gray-700 dark:text-gray-300'} hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer`}
+                  className={`block px-4 py-3 text-sm font-medium cursor-pointer transition-colors
+                    ${activeSection === item.href 
+                      ? 'text-blue-500 bg-blue-500/10' 
+                      : darkMode ? 'text-gray-400 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
                   onClick={toggleMenu}
                 >
                   {item.name}
