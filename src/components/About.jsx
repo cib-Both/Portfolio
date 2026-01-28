@@ -86,7 +86,7 @@ const About = ({ darkMode }) => {
               {/* Graduate badge - hidden on mobile */}
               <div className={`hidden sm:block absolute -bottom-4 -right-4 z-20 rounded-xl p-4 border ${darkMode ? 'bg-gray-900 border-blue-500/20' : 'bg-white border-gray-200 shadow-lg'}`}>
                 <div className="text-3xl font-bold text-blue-400">2026</div>
-                <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Fresh Graduate</div>
+                <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Graduate</div>
               </div>
             </div>
 
@@ -119,8 +119,8 @@ const About = ({ darkMode }) => {
               className={`mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
               variants={itemVariants}
             >
-              I'm a recent graduate in Information technology engineering with a strong passion for web development. During my studies, 
-              I've built various projects using JavaScript, React.js, Laravel, and Tailwind CSS. 
+              I'm a recent graduate in Information technology engineering with a strong passion for Software development. During my studies, 
+              I've built various projects using JavaScript, React.js, Laravel, Tailwind CSS and Kotlin. 
               I'm eager to apply my knowledge and continue growing as a developer.
             </motion.p>
             
