@@ -1,7 +1,70 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaMapMarkerAlt, FaEnvelope, FaGithub, FaLinkedin, FaTelegram, FaPaperPlane } from 'react-icons/fa'
 
 const Contact = ({ darkMode }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [status, setStatus] = useState({ type: '', message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Use environment variables from .env file
+  const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+  const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setStatus({ type: '', message: '' })
+
+    const text = `
+📬 New Contact Form Your Portfolio
+
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+📌 Subject: ${formData.subject}
+
+💬 Message:
+${formData.message}
+    `
+
+    try {
+      const response = await fetch(
+        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: text,
+            parse_mode: 'HTML'
+          }),
+        }
+      )
+
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' })
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        throw new Error('Failed to send message')
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Failed to send message. Please try again or contact me directly.' })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -144,11 +207,14 @@ const Contact = ({ darkMode }) => {
             >
               <h3 className={`text-xl sm:text-2xl font-bold mb-6 sm:mb-8 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Send a Message</h3>
               
-              <form className="space-y-4 sm:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <motion.div variants={itemVariants}>
                   <label className={`block mb-2 text-xs sm:text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Your Name</label>
                   <input 
-                    type="text" 
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className={`w-full p-3 sm:p-4 rounded-lg border focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base ${darkMode ? 'bg-white/5 text-white border-white/10 placeholder:text-gray-600' : 'bg-white text-gray-900 border-gray-300 placeholder:text-gray-400'}`}
                     placeholder="John Doe"
                     required
@@ -158,7 +224,10 @@ const Contact = ({ darkMode }) => {
                 <motion.div variants={itemVariants}>
                   <label className={`block mb-2 text-xs sm:text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Your Email</label>
                   <input 
-                    type="email" 
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className={`w-full p-3 sm:p-4 rounded-lg border focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base ${darkMode ? 'bg-white/5 text-white border-white/10 placeholder:text-gray-600' : 'bg-white text-gray-900 border-gray-300 placeholder:text-gray-400'}`}
                     placeholder="john@example.com"
                     required
@@ -168,7 +237,10 @@ const Contact = ({ darkMode }) => {
                 <motion.div variants={itemVariants}>
                   <label className={`block mb-2 text-xs sm:text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Subject</label>
                   <input 
-                    type="text" 
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
                     className={`w-full p-3 sm:p-4 rounded-lg border focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors text-sm sm:text-base ${darkMode ? 'bg-white/5 text-white border-white/10 placeholder:text-gray-600' : 'bg-white text-gray-900 border-gray-300 placeholder:text-gray-400'}`}
                     placeholder="Project Inquiry"
                     required
@@ -179,19 +251,32 @@ const Contact = ({ darkMode }) => {
                   <label className={`block mb-2 text-xs sm:text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Message</label>
                   <textarea 
                     rows="4"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className={`w-full p-3 sm:p-4 rounded-lg border focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors resize-none text-sm sm:text-base ${darkMode ? 'bg-white/5 text-white border-white/10 placeholder:text-gray-600' : 'bg-white text-gray-900 border-gray-300 placeholder:text-gray-400'}`}
                     placeholder="Tell me about your project..."
                     required
                   ></textarea>
                 </motion.div>
 
+                {status.message && (
+                  <motion.div 
+                    variants={itemVariants}
+                    className={`p-3 rounded-lg text-sm ${status.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}
+                  >
+                    {status.message}
+                  </motion.div>
+                )}
+
                 <motion.div variants={itemVariants}>
                   <button 
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 disabled:cursor-not-allowed text-white py-3 sm:py-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
                   >
-                    <FaPaperPlane className="w-4 h-4" />
-                    Send Message
+                    <FaPaperPlane className={`w-4 h-4 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </motion.div>
               </form>
