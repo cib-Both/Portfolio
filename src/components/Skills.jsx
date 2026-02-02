@@ -11,9 +11,9 @@ const skills = [
   { name: 'MySQL', level: 75, icon: FaDatabase },
   { name: 'GitHub', level: 90, icon: FaGithub },
   { name: 'Java', level: 60, icon: FaJava },
-  { name: 'Docker', level: 50, icon: FaDocker },
+  { name: 'Docker', level: 30, icon: FaDocker },
   { name: 'Kotlin', level: 60, icon: SiKotlin },
-  { name: 'Flutter', level: 50, icon: SiFlutter },
+  { name: 'Flutter', level: 40, icon: SiFlutter },
   { name: 'Python', level: 50, icon: FaPython },
   { name: 'C/C++', level: 60, icon: SiC }
 ]
