@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-scroll'
 import { FaCode, FaLaptopCode, FaRocket, FaGraduationCap, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
+import My_profile from "../assets/My_profile.jpg"
 
 
 const About = ({ darkMode }) => {
@@ -76,7 +77,7 @@ const About = ({ darkMode }) => {
               {/* Main image */}
               <div className={`relative z-10 rounded-xl overflow-hidden border ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
                 <img
-                  src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                  src={My_profile}
                   alt="About Me"
                   className="w-full h-64 sm:h-80 object-cover"
                 />

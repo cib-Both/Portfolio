@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { FaGithub, FaLinkedin, FaFileDownload, FaTelegram } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { Link } from 'react-scroll'
+import My_profile from "../assets/My_profile.jpg";
 
 // Typewriter effect component
 const TypeWriter = ({ words, className }) => {
@@ -170,7 +171,7 @@ const Hero = ({ darkMode }) => {
               {/* Main image container */}
               <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-blue-500/30">
                 <img
-                  src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                  src={My_profile}
                   alt="Developer"
                   className="w-full h-full object-cover"
                 />
